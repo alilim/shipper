@@ -1,0 +1,16 @@
+@import-normalize; /* bring in normalize.css styles */
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  font-family: Montserrat, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
