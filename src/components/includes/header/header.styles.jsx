@@ -3,11 +3,23 @@ import styled from 'styled-components'
 /* Components */
 export const HeaderContainer = styled.section`
   grid-area: header;
+  position: fixed;
+  background-color: #fff;
+  z-index: 1;
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
-  padding: 2em 1em;
-  
+  padding: 1em;
+  >div > i {
+    float: left;
+    margin-right: 10px;
+  }
+  @media (min-width: 768px) {
+    padding: 2em 1em;
+    >div > i {
+      display: none;
+    }
+  }
 `
 export const HeaderLogoImg = styled.img`
   width: 8em;
@@ -21,9 +33,12 @@ export const HeaderUserWrapper = styled.div`
   align-items: center;
 `
 export const HeaderUserText = styled.div`
-  font-size: 1em;
+  display: none;
+  @media (min-width: 768px) {
+    display: block; 
+    font-size: 1em;
+  }
 ` 
-export const HeaderUserAvatar = styled.div``
 export const HeaderUserImg = styled.img`
   width: 1.5em;
   height: 1.5em;

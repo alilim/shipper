@@ -1,5 +1,5 @@
 //# Main layout
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import HeaderInclude from '../includes/header/header'
 import NavInclude from '../includes/nav/nav'
@@ -7,10 +7,20 @@ import NavInclude from '../includes/nav/nav'
 import { MainLayoutContainer, ContentContainer } from './layout.styles'
 
 const MainLayout = ({children}) => {
+  const [ isOpenNavMobile, setOpenNavMobile ] = useState(false)
+
+  const evToggleNavMobile = () => {
+    const isOpen = isOpenNavMobile,
+          bodyEl = document.getElementsByTagName("BODY")[0]
+    if(!isOpen) bodyEl.classList.add("is-mute")
+    else bodyEl.classList.remove("is-mute")
+    setOpenNavMobile(!isOpen)
+  }
+
   return (
     <MainLayoutContainer>
-      <HeaderInclude />
-      <NavInclude />
+      <HeaderInclude evToggleNavMobile={evToggleNavMobile} />
+      <NavInclude evToggleNavMobile={evToggleNavMobile} isOpenNavMobile={isOpenNavMobile} />
       <ContentContainer>{children}</ContentContainer>
     </MainLayoutContainer>
   )

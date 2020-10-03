@@ -12,10 +12,11 @@ import IconLeftArrow from '../../../assets/images/svg/arrow-prev.svg'
 import IconLeftArrowDisable from '../../../assets/images/svg/arrow-prev-grey.svg'
 import IconRightArrow from '../../../assets/images/svg/arrow-next.svg'
 import IconRightArrowDisable from '../../../assets/images/svg/arrow-next-grey.svg'
-
+import IconBar from '../../../assets/images/svg/humberbars.svg'
+import IconClose from '../../../assets/images/svg/close.svg'
 
 /* function */
-const getIconContainerStyled = ({mode, name, width, isActive, onClick}) => {
+const getIconContainerStyled = ({mode, name, width, mobileWidth, isActive, onClick}) => {
   let stylesIcon = ``
   if(mode && mode == 'nav') {
     stylesIcon += `
@@ -76,10 +77,33 @@ const getIconContainerStyled = ({mode, name, width, isActive, onClick}) => {
         &:before { content: url(${isActive ? IconLeftArrow : IconLeftArrowDisable}); }
       `
       break;
+    case 'bar' 
+      : stylesIcon += `
+        &:before { content: url(${IconBar}); }
+      `
+      break;  
+    case 'close' 
+      : stylesIcon += `
+        &:before { content: url(${IconClose}); }
+      `
+      break; 
     default
       : break;
   }
-  if(width) stylesIcon += `
+  if(mobileWidth) {
+    stylesIcon += `
+      &:before { 
+        width: ${mobileWidth}; 
+        height: ${mobileWidth};
+      }
+      @media (min-width: 768px) {
+        &:before { 
+          width: ${width}; 
+          height: ${width};
+        }
+      }
+    `
+  }else if(width) stylesIcon += `
     &:before { 
       width: ${width}; 
       height: ${width};

@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom'
 import logoImg from '../../../assets/images/logo.png'
 import UserSvg from '../../../assets/images/svg/user-blur.svg'
 import TextComponent from '../../ui/text/text.component'
-import { HeaderContainer, HeaderLogoImg, HeaderUserWrapper, HeaderUserText, HeaderUserAvatar, HeaderUserImg } from './header.styles'
+import IconComponent from '../../ui/icon/icon.component'
+import { HeaderContainer, HeaderLogoImg, HeaderUserWrapper, HeaderUserText, HeaderUserImg } from './header.styles'
 
-const HeaderInclude = () => {
+const HeaderInclude = ({evToggleNavMobile}) => {
   return (
     <HeaderContainer>
       <div>
+        <IconComponent name='bar' width='1.5em' onClick={evToggleNavMobile}/>
         <Link to='/'>
           <HeaderLogoImg src={logoImg} alt='Shipper' title='Shipper' />
         </Link>
@@ -18,9 +20,9 @@ const HeaderInclude = () => {
         <HeaderUserText>
           Hello, <TextComponent color='#ff4646' inline={true}>Shipper User</TextComponent>
         </HeaderUserText>
-        <HeaderUserAvatar>
+        <div>
           <HeaderUserImg src={UserSvg} alt='Shipper User' title='Shipper User' />
-        </HeaderUserAvatar>
+        </div>
       </HeaderUserWrapper>
     </HeaderContainer>
   )

@@ -12,6 +12,10 @@ body {
   letter-spacing: .01em;
 }
 
+body.is-mute {
+  overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
 }

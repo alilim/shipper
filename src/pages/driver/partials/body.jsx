@@ -2,7 +2,7 @@ import React from 'react'
 import TextComponent from '../../../components/ui/text/text.component'
 import IconComponent from '../../../components/ui/icon/icon.component'
 import ButtonComponent from '../../../components/ui/button/button.component'
-import { DriverContentWrapper,  DriverList, DriverItem, DriverItemHeader, DriverItemHeaderID, DriverItemHeaderLabel, DriverItemBody, DriverItemImage, DriverItemLabel, DriverItemValue, DriverPagination } from '../driver.styles'
+import { DriverContentWrapper,  DriverList, DriverItem, DriverItemHeader, DriverItemHeaderID, DriverItemHeaderLabel, DriverItemBody, DriverItemImage, DriverItemGroupWrapper, DriverItemGroup, DriverItemLabel, DriverItemValue, DriverPagination } from '../driver.styles'
 
 const DriverBodyPartial = () => {
   return (
@@ -15,24 +15,26 @@ const DriverBodyPartial = () => {
           </DriverItemHeader>
           <DriverItemBody>
             <DriverItemImage>
-              <IconComponent name='user' width='4em'/>
+              <IconComponent name='user' width='4em' mobileWidth='6em'/>
             </DriverItemImage>
-            <aside>
-              <DriverItemLabel>Name Driver</DriverItemLabel>
-              <DriverItemValue>First Name, Last Name</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Telepon</DriverItemLabel>
-              <DriverItemValue>Phone Number</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Email</DriverItemLabel>
-              <DriverItemValue>Email Address</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
-              <DriverItemValue>DD-MM-YYYY</DriverItemValue>
-            </aside>
+            <DriverItemGroupWrapper>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Name Driver</DriverItemLabel>
+                <DriverItemValue>First Name, Last Name</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Telepon</DriverItemLabel>
+                <DriverItemValue>Phone Number</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Email</DriverItemLabel>
+                <DriverItemValue>Email Address</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
+                <DriverItemValue>DD-MM-YYYY</DriverItemValue>
+              </DriverItemGroup>
+            </DriverItemGroupWrapper>
           </DriverItemBody>
         </DriverItem>
         <DriverItem>
@@ -42,24 +44,26 @@ const DriverBodyPartial = () => {
           </DriverItemHeader>
           <DriverItemBody>
             <DriverItemImage>
-              <IconComponent name='user' width='4em'/>
+              <IconComponent name='user' width='4em' mobileWidth='6em'/>
             </DriverItemImage>
-            <aside>
-              <DriverItemLabel>Name Driver</DriverItemLabel>
-              <DriverItemValue>First Name, Last Name</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Telepon</DriverItemLabel>
-              <DriverItemValue>Phone Number</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Email</DriverItemLabel>
-              <DriverItemValue>Email Address</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
-              <DriverItemValue>DD-MM-YYYY</DriverItemValue>
-            </aside>
+            <DriverItemGroupWrapper>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Name Driver</DriverItemLabel>
+                <DriverItemValue>First Name, Last Name</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Telepon</DriverItemLabel>
+                <DriverItemValue>Phone Number</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Email</DriverItemLabel>
+                <DriverItemValue>Email Address</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
+                <DriverItemValue>DD-MM-YYYY</DriverItemValue>
+              </DriverItemGroup>
+            </DriverItemGroupWrapper>
           </DriverItemBody>
         </DriverItem>
         <DriverItem>
@@ -69,24 +73,26 @@ const DriverBodyPartial = () => {
           </DriverItemHeader>
           <DriverItemBody>
             <DriverItemImage>
-              <IconComponent name='user' width='4em'/>
+              <IconComponent name='user' width='4em' mobileWidth='6em'/>
             </DriverItemImage>
-            <aside>
-              <DriverItemLabel>Name Driver</DriverItemLabel>
-              <DriverItemValue>First Name, Last Name</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Telepon</DriverItemLabel>
-              <DriverItemValue>Phone Number</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Email</DriverItemLabel>
-              <DriverItemValue>Email Address</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
-              <DriverItemValue>DD-MM-YYYY</DriverItemValue>
-            </aside>
+            <DriverItemGroupWrapper>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Name Driver</DriverItemLabel>
+                <DriverItemValue>First Name, Last Name</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Telepon</DriverItemLabel>
+                <DriverItemValue>Phone Number</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Email</DriverItemLabel>
+                <DriverItemValue>Email Address</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
+                <DriverItemValue>DD-MM-YYYY</DriverItemValue>
+              </DriverItemGroup>
+            </DriverItemGroupWrapper>
           </DriverItemBody>
         </DriverItem>
         <DriverItem>
@@ -96,24 +102,26 @@ const DriverBodyPartial = () => {
           </DriverItemHeader>
           <DriverItemBody>
             <DriverItemImage>
-              <IconComponent name='user' width='4em'/>
+              <IconComponent name='user' width='4em' mobileWidth='6em'/>
             </DriverItemImage>
-            <aside>
-              <DriverItemLabel>Name Driver</DriverItemLabel>
-              <DriverItemValue>First Name, Last Name</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Telepon</DriverItemLabel>
-              <DriverItemValue>Phone Number</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Email</DriverItemLabel>
-              <DriverItemValue>Email Address</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
-              <DriverItemValue>DD-MM-YYYY</DriverItemValue>
-            </aside>
+            <DriverItemGroupWrapper>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Name Driver</DriverItemLabel>
+                <DriverItemValue>First Name, Last Name</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Telepon</DriverItemLabel>
+                <DriverItemValue>Phone Number</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Email</DriverItemLabel>
+                <DriverItemValue>Email Address</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
+                <DriverItemValue>DD-MM-YYYY</DriverItemValue>
+              </DriverItemGroup>
+            </DriverItemGroupWrapper>
           </DriverItemBody>
         </DriverItem>
         <DriverItem>
@@ -123,24 +131,26 @@ const DriverBodyPartial = () => {
           </DriverItemHeader>
           <DriverItemBody>
             <DriverItemImage>
-              <IconComponent name='user' width='4em'/>
+              <IconComponent name='user' width='4em' mobileWidth='6em'/>
             </DriverItemImage>
-            <aside>
-              <DriverItemLabel>Name Driver</DriverItemLabel>
-              <DriverItemValue>First Name, Last Name</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Telepon</DriverItemLabel>
-              <DriverItemValue>Phone Number</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Email</DriverItemLabel>
-              <DriverItemValue>Email Address</DriverItemValue>
-            </aside>
-            <aside>
-              <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
-              <DriverItemValue>DD-MM-YYYY</DriverItemValue>
-            </aside>
+            <DriverItemGroupWrapper>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Name Driver</DriverItemLabel>
+                <DriverItemValue>First Name, Last Name</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={false}>
+                <DriverItemLabel>Telepon</DriverItemLabel>
+                <DriverItemValue>Phone Number</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Email</DriverItemLabel>
+                <DriverItemValue>Email Address</DriverItemValue>
+              </DriverItemGroup>
+              <DriverItemGroup desktop={true}>
+                <DriverItemLabel>Tanggal Lahir</DriverItemLabel>
+                <DriverItemValue>DD-MM-YYYY</DriverItemValue>
+              </DriverItemGroup>
+            </DriverItemGroupWrapper>
           </DriverItemBody>
         </DriverItem>
       </DriverList>
