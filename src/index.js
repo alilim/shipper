@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
+import DriverIndex from './pages/driver/index'
 import './index.css'
-
-import DriverIndex from './pages/driver/driver'
 
 export const Root = () => { 
   return  (
