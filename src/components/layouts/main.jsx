@@ -9,6 +9,7 @@ import { MainLayoutContainer, ContentContainer } from './layout.styles'
 const MainLayout = ({children}) => {
   const [ isOpenNavMobile, setOpenNavMobile ] = useState(false)
 
+  //*** called for toogle navigation on mobile ***//
   const evToggleNavMobile = () => {
     const isOpen = isOpenNavMobile,
           bodyEl = document.getElementsByTagName("BODY")[0]

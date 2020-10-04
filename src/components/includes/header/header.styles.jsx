@@ -7,9 +7,10 @@ export const HeaderContainer = styled.section`
   background-color: #fff;
   z-index: 1;
   display: inline-grid;
-  grid-template-columns: 1fr 1fr;
   width: 100%;
   padding: 1em;
+  grid-template-columns: 1.5fr 1fr auto;
+  grid-column-gap: 10px;
   >div > i {
     float: left;
     margin-right: 10px;

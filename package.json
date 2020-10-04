@@ -49,7 +49,11 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "styled-components": "^5.2.0",
     "webpack-async-chunk-names-plugin": "^0.1.1",
     "webpack-hot-middleware": "^2.25.0"

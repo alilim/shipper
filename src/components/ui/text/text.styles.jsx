@@ -5,7 +5,6 @@ const elipsisStyle = css `
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block;
   max-width: 100%;
   width: auto;
 `
@@ -18,7 +17,8 @@ const getTextModifiedStyled = ({color, fontWeight, fontSize, elipsis, inline}) =
   if(fontSize) StyleText += `font-size: ${fontSize};`
 
   if(inline) StyleText += `display: inline;`
-  else if(elipsis) StyleText += `${elipsisStyle}`
+  else StyleText += `display: block;`
+  if(elipsis) StyleText += `${elipsisStyle}`
   return StyleText;
 }
 

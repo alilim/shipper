@@ -52,6 +52,7 @@ export const NavContainer = styled.section`
     display: grid;
     min-height: calc(100vh - 84px);
     margin-top: 84px;
+    width: 15vw;
     & > i {
       display: none;
     }

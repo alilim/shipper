@@ -14,6 +14,8 @@ import IconRightArrow from '../../../assets/images/svg/arrow-next.svg'
 import IconRightArrowDisable from '../../../assets/images/svg/arrow-next-grey.svg'
 import IconBar from '../../../assets/images/svg/humberbars.svg'
 import IconClose from '../../../assets/images/svg/close.svg'
+import IconLogout from '../../../assets/images/svg/logout.svg'
+import IconEmpty from '../../../assets/images/svg/empty.svg'
 
 /* function */
 const getIconContainerStyled = ({mode, name, width, mobileWidth, isActive, onClick}) => {
@@ -85,6 +87,16 @@ const getIconContainerStyled = ({mode, name, width, mobileWidth, isActive, onCli
     case 'close' 
       : stylesIcon += `
         &:before { content: url(${IconClose}); }
+      `
+      break; 
+    case 'logout' 
+      : stylesIcon += `
+        &:before { content: url(${IconLogout}); }
+      `
+      break; 
+    case 'empty' 
+      : stylesIcon += `
+        &:before { content: url(${IconEmpty}); }
       `
       break; 
     default

@@ -5,8 +5,8 @@ export const MainLayoutContainer = styled.section`
   grid-template-areas:  'header'
                         'content'; 
   @media (min-width: 768px) {
-    grid-template-areas:  'header header header header header header header header header header' 
-                        'menu content content content content content content content content content'; 
+    grid-template-areas:  'header header' 
+                        'menu content'; 
   }
 `
 export const ContentContainer = styled.section`
@@ -20,5 +20,6 @@ export const ContentContainer = styled.section`
   @media (min-width: 768px) {
     padding: 2em;
     margin-top: 84px;
+    width: 85vw;
   }
 `

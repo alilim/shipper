@@ -88,17 +88,24 @@ export const DriverList = styled.section`
   width: 100%;
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 1em;
+    grid-row-gap: 1.5em;
+    grid-column-gap: 1.5em;
   }
   @media (min-width: 1024px) {
-    grid-auto-flow: column;
-    grid-template-columns: repeat(5, auto [column-start]);
-    grid-row-gap: 0;
+    grid-auto-flow: unset;
+    justify-content: space-between;
+    grid-template-columns: repeat(3,[col-start] 32% [col-end]);
+    grid-column-gap: unset;
   }
-
+  @media (min-width: 1440px) {
+    grid-template-columns:  repeat(5,  [col-start] 19% [col-end]);
+  }
 ` 
 export const DriverItem = styled.div`
   background-color: #fff;
+  &:hover {
+    box-shadow: 0 0 5px rgba(234, 68, 60, .3);
+  }
   & > article {
     padding: 1em;
   }
@@ -112,9 +119,14 @@ export const DriverItemHeader = styled.article`
 export const DriverItemHeaderID = styled.div`
   font-size: .875em;
   color: #596a80;
+  padding: .3em 0;
+  & > div, & > span {
+    float: left;
+    display: block;
+  }
   & > span {
-    margin-left: 2px;
-    line-height: 22px;
+    padding-left: 5px;
+    width: 70%;
   }
 `
 export const DriverItemHeaderLabel = styled.div`
@@ -150,6 +162,13 @@ export const DriverItemLabel = styled.div`
 `
 export const DriverItemValue = styled.div`
   font-weight: 500;
+  font-size: .9375em;
+  @media (min-width: 1024px) {
+    > span {
+      white-space: unset;
+      word-break: break-word;
+    }
+  }
 `
 export const DriverPagination = styled.section`
   padding: 1em;
@@ -159,3 +178,6 @@ export const DriverPagination = styled.section`
     padding: 2em;
   }
 ` 
+export const EmptyContainer = styled.div`
+  color: #666;
+`
