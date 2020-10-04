@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import LoadingComponent from '../../../components/ui/loading/loading.component'
 import TextComponent from '../../../components/ui/text/text.component'
@@ -9,9 +9,16 @@ import { transformDate } from '../../../assets/javascripts/helper'
 import { DriverContentWrapper,  DriverList, DriverItem, DriverItemHeader, DriverItemHeaderID, DriverItemHeaderLabel, DriverItemBody, DriverItemImage, DriverItemGroupWrapper, DriverItemGroup, DriverItemLabel, DriverItemValue, DriverPagination, EmptyContainer } from '../driver.styles'
 
 const DriverBodyPartial = ({isLoading, currentDriver, searchVal}) => {
+  const defaultMapPostObj = { start: 0, end: 5 }
   const [ isLoadingSlide, setLoadingSlide ] = useState(false)
   const [ currentPosition, setCurrentPosition ] =  useState(1)
-  const [ mapPost, setMapPost ] = useState({ start: 0, end: 5 })
+  const [ mapPost, setMapPost ] = useState(defaultMapPostObj)
+
+  //*** UseEffect checking if search input is changed, to reset page ***//
+  useEffect(() => {
+    setMapPost(defaultMapPostObj)
+    setCurrentPosition(1)
+  }, [searchVal])
 
   //*** slide page using current position, mapping position and alittle opacity effect with timeout ***//
   const evSlide = (e) => {
