@@ -41,7 +41,8 @@
     - [x] Optimized app (eg. lazyload, state management, no errors & warnings). :+1:
 
 
-
 In the console log development, we have:
 > Hot Reload & Middleware log for redux state 
+
+~~There is a logout button, in the corner right beside icon profile, to clear cache and re get data (*reload*)~~
 
