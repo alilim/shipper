@@ -1,4 +1,3 @@
-//# Main layout
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import HeaderInclude from '../includes/header/header'

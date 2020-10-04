@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import { ButtonContainer } from '../button/button.styles'
 
-const ButtonComponent = ({ children, mode, inlineSvg, isDisabled, onClick }) => {
+const ButtonComponent = ({ children, mode, inlineSvg,  ...props  }) => {
   return (
-    <ButtonContainer mode={mode} inlineSvg={inlineSvg} {...isDisabled && {disabled: true}} {...onClick && {onClick: onClick}}>
+    <ButtonContainer mode={mode} inlineSvg={inlineSvg} {...props}>
       {children}
     </ButtonContainer>
   )
@@ -19,8 +19,7 @@ ButtonComponent.propTypes = {
   children: PropTypes.node.isRequired,
   mode: PropTypes.string,
   inlineSvg: PropTypes.string,
-  isDisabled: PropTypes.bool,
-  onClick: PropTypes.func
+  evClick: PropTypes.func
 }
 
 export default ButtonComponent

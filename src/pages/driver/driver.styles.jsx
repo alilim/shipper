@@ -2,6 +2,15 @@
 import styled from 'styled-components'
 
 /* Function */
+const getDriverItemStyled = ({isLoading}) => {
+  let stylesMod = ''
+  if(isLoading) {
+    stylesMod += `
+      opacity: .5;
+    `
+  } 
+  return stylesMod
+}
 const getDriverItemGroupStyled = ({desktop}) => {
   let stylesMod = ''
   if(desktop) {
@@ -103,12 +112,15 @@ export const DriverList = styled.section`
 ` 
 export const DriverItem = styled.div`
   background-color: #fff;
+  opacity: 1;
+  transition: opacity ease-in-out .4s;
   &:hover {
     box-shadow: 0 0 5px rgba(234, 68, 60, .3);
   }
   & > article {
     padding: 1em;
   }
+  ${getDriverItemStyled}
 `
 export const DriverItemHeader = styled.article`
   display: grid;
@@ -162,7 +174,7 @@ export const DriverItemLabel = styled.div`
 `
 export const DriverItemValue = styled.div`
   font-weight: 500;
-  font-size: .9375em;
+  font-size: .9em;
   @media (min-width: 1024px) {
     > span {
       white-space: unset;

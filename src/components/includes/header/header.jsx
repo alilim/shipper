@@ -1,4 +1,3 @@
-//# Header
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -17,6 +16,7 @@ const HeaderInclude = ({evToggleNavMobile}) => {
   //*** called for logout and clear cache in redux ***//
   const evLogout = () => {
     store.dispatch(RESET_ACTION)
+    window.location.href = '/'
   }
 
   return (
@@ -35,7 +35,7 @@ const HeaderInclude = ({evToggleNavMobile}) => {
           <HeaderUserImg src={UserSvg} alt='Shipper User' title='Shipper User' />
         </div>
       </HeaderUserWrapper>
-      <IconComponent name='logout' width='1.5em' onClick={evLogout} />
+      <IconComponent name='logout' title='Logout to clear cache' width='1.6em' onClick={evLogout} />
     </HeaderContainer>
   )
 }

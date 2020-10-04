@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import LoadingComponent from '../../../components/ui/loading/loading.component'
 import TextComponent from '../../../components/ui/text/text.component'
@@ -9,12 +9,43 @@ import { transformDate } from '../../../assets/javascripts/helper'
 import { DriverContentWrapper,  DriverList, DriverItem, DriverItemHeader, DriverItemHeaderID, DriverItemHeaderLabel, DriverItemBody, DriverItemImage, DriverItemGroupWrapper, DriverItemGroup, DriverItemLabel, DriverItemValue, DriverPagination, EmptyContainer } from '../driver.styles'
 
 const DriverBodyPartial = ({isLoading, currentDriver, searchVal}) => {
+  const [ isLoadingSlide, setLoadingSlide ] = useState(false)
+  const [ currentPosition, setCurrentPosition ] =  useState(1)
+  const [ mapPost, setMapPost ] = useState({ start: 0, end: 5 })
+
+  //*** slide page using current position, mapping position and alittle opacity effect with timeout ***//
+  const evSlide = (e) => {
+    e.persist()
+    if(isLoadingSlide) return
+    let type = e.target.getAttribute('data-type')
+    const curMapPost = mapPost,
+      curCurrentPost = currentPosition
+    setLoadingSlide(true)
+    setTimeout(()=> {
+      if(type == 'left') {
+        setMapPost({
+          start: curMapPost.start - 5,
+          end: curMapPost.end - 5,
+        })
+        setCurrentPosition(curCurrentPost-1)
+      }else {
+        setMapPost({
+          start: curMapPost.start + 5,
+          end: curMapPost.end + 5,
+        })
+        setCurrentPosition(curCurrentPost+1)
+      }
+      setLoadingSlide(false)
+    }, 500)  
+  }
+
   let dataDriver = currentDriver && currentDriver.driver  || []
   //*** data at redux, filter by search  ***//
   if(currentDriver && currentDriver.driver && currentDriver.driver.length && searchVal != '') {
     dataDriver = currentDriver.driver.filter(driver => (driver.name?.first && driver.name.first.toLowerCase().indexOf(searchVal.toLowerCase()) !== -1) )
   }
-  
+  const totalSlide = Math.ceil(dataDriver.length / 5)
+
   return (
     <DriverContentWrapper>
       {
@@ -24,9 +55,9 @@ const DriverBodyPartial = ({isLoading, currentDriver, searchVal}) => {
         (dataDriver.length) ? (
           <DriverList>
             {
-              dataDriver.map((driver, idx) => {
+              dataDriver.slice(mapPost.start, mapPost.end).map((driver, idx) => {
                 return (
-                  <DriverItem key={idx}>
+                  <DriverItem key={idx} isLoading={isLoadingSlide}>
                     <DriverItemHeader>
                       <DriverItemHeaderID><div>Driver ID</div> <TextComponent color='#ff4646'>{`${driver?.id?.name}${driver?.id?.value || 'XXX'}`}</TextComponent></DriverItemHeaderID>
                       <DriverItemHeaderLabel>...</DriverItemHeaderLabel>
@@ -63,23 +94,23 @@ const DriverBodyPartial = ({isLoading, currentDriver, searchVal}) => {
               }) 
             }
           </DriverList>
-        ) : <EmptyContainer> <IconComponent name='empty' width='1.5em' mode='nav'>There is no Driver.</IconComponent></EmptyContainer>
+        ) : (dataDriver.length <= 0  && currentDriver !== null) ? <EmptyContainer> <IconComponent name='empty' width='1.5em' mode='nav'>There is no Driver.</IconComponent></EmptyContainer> : null
       }
       {
-        (dataDriver.length) && (
+        (dataDriver.length && dataDriver.length > 5) ? (
           <DriverPagination>
             <div>
-              <ButtonComponent mode='transparent' inlineSvg='left' isDisabled={true}>
-                <IconComponent name='left-arrow' isActive={false} width='.825em'/>
+              <ButtonComponent mode='transparent' inlineSvg='left' disabled={currentPosition == 1 ? true : false} data-type='left' onClick={evSlide} >
+                <IconComponent name='left-arrow' isActive={currentPosition == 1 ? false : true} width='.825em'/>
                 Previous Page
               </ButtonComponent>
-              <ButtonComponent mode='transparent' inlineSvg='right'>
+              <ButtonComponent mode='transparent' inlineSvg='right' disabled={currentPosition >= totalSlide ? true : false} data-type='right' onClick={evSlide} >
                 Next Page
-                <IconComponent name='right-arrow' isActive={true} width='.825em'/>
+                <IconComponent name='right-arrow' isActive={currentPosition >= totalSlide ? false : true} width='.825em' />
               </ButtonComponent>
             </div>
           </DriverPagination>
-        )
+        ) : null
       }
      
     </DriverContentWrapper>
